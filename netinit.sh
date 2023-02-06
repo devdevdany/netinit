@@ -14,4 +14,7 @@ dotnet new sln --name "${project_name}"
 dotnet new web --name "${project_name}" --output "${project_name}"
 dotnet sln add "./${project_name}/${project_name}.csproj"
 
+dotnet new tool-manifest
+dotnet tool install csharpier
+
 echo "The .NET project \"${project_name}\" was successfully initialized."
