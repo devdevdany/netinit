@@ -17,10 +17,9 @@ dotnet new web --name "${project_name}" --output "${project_name}"
 curl --location --verbose --output "${csproj_path}" "https://raw.githubusercontent.com/devdevdany/dotnet-lint-and-format/main/Recommended.csproj"
 dotnet sln add "${csproj_path}"
 
-curl --location --verbose --output .editorconfig "https://raw.githubusercontent.com/devdevdany/dotnet-lint-and-format/main/.editorconfig"
+curl --location --verbose --output ".editorconfig" "https://raw.githubusercontent.com/devdevdany/dotnet-lint-and-format/main/.editorconfig"
 
 dotnet new tool-manifest
 dotnet tool install csharpier
-curl --location --verbose --output .csharpierrc.json "https://raw.githubusercontent.com/devdevdany/dotnet-lint-and-format/main/.csharpierrc.json"
 
 echo "The .NET project \"${project_name}\" was successfully initialized."
