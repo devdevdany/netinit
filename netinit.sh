@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
-# usage, inside your project directory
-# `netinit`
+# usage: inside the project directory run `netinit`
 
 # uncomment to debug
 # set -x
 
 set -Eeuo pipefail
+IFS=$'\n\t'
+trap_err() {
+  echo >&2 "${0}: Error on line ${LINENO}: ${BASH_COMMAND}"
+  exit "${?}"
+}
+trap trap_err ERR
 
 project_name="$(basename "$(pwd)")"
 
