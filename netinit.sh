@@ -8,8 +8,9 @@
 set -Eeuo pipefail
 IFS=$'\n\t'
 trap_err() {
+  exit_status_before_echo=${?}
   echo >&2 "${0}: Error on line ${LINENO}: ${BASH_COMMAND}"
-  exit "${?}"
+  exit ${exit_status_before_echo}
 }
 trap trap_err ERR
 
